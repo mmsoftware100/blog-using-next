@@ -26,7 +26,7 @@ export default function Home() {
           </h1>
 
           <p className="text-xl text-gray-600 mb-10">
-            Welcome to my creative space. Explore and discover what I have to
+            Welcome to our creative space. Explore and discover what we have to
             share.
           </p>
 
@@ -35,7 +35,7 @@ export default function Home() {
               href="/about"
               className="px-6 py-3 bg-indigo-600 text-white rounded-lg shadow-md hover:bg-indigo-700 transition duration-300 transform hover:scale-105"
             >
-              About Me
+              About Us
             </Link>
 
             <Link
