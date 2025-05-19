@@ -14,7 +14,7 @@ export default function Home() {
 
 
       <br />
-      <Link href="/articles/123">Read Article 123</Link>
+      {/* <Link href="/articles/123">Read Article 123</Link> */}
     </div>
   );
 }
