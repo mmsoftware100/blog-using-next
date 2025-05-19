@@ -26,6 +26,13 @@ export default function Articles({ articles }) {
           </li>
         ))}
       </ul>
+      <Link
+        href="/"
+        style={{ display: "inline-block", marginTop: 30, color: "blue" }}
+      >
+        ← Back to Home
+      </Link>
+
     </div>
   );
 }
