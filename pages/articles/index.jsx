@@ -1,55 +1,76 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import '../../src/app/globals.css';
 
 export default function Articles({ articles, page, hasMore }) {
+  const router = useRouter();
   const nextPage = page + 1;
 
-  return (
-    <div style={{ padding: '20px' }}>
-      <h1>Articles</h1>
+  const loadMore = (e) => {
+    e.preventDefault();
+    router.push(`/articles?page=${nextPage}`);
+  };
 
-      <ul style={{ listStyle: 'none', padding: 0 }}>
+  return (
+    <div className="container mx-auto px-4 py-8 max-w-6xl">
+      <div className="flex justify-between items-center mb-8">
+        <h1 className="text-3xl font-bold text-gray-800">Latest Articles</h1>
+        <Link href="/" className="text-blue-600 hover:text-blue-800 flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+            <path fillRule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clipRule="evenodd" />
+          </svg>
+          Back to Home
+        </Link>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {articles.map(({ id, name, photo_url, created_at }) => (
-          <li key={id} style={{ marginBottom: '20px' }}>
-            <Link href={`/articles/${id}`}>
-              <div style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
+          <Link key={id} href={`/articles/${id}`}>
+            <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 cursor-pointer h-full flex flex-col">
+              <div className="relative h-48 w-full">
                 <Image
                   src={photo_url}
                   alt={name}
-                  width={100}
-                  height={60}
-                  style={{ borderRadius: '8px', marginRight: '15px' }}
+                  layout="fill"
+                  objectFit="cover"
+                  className="hover:scale-105 transition-transform duration-300"
                 />
-                <div>
-                  <h3>{name}</h3>
-                  <small>Created: {created_at}</small>
-                </div>
               </div>
-            </Link>
-          </li>
+              <div className="p-4 flex-grow">
+                <h3 className="text-xl font-semibold text-gray-800 mb-2 line-clamp-2">{name}</h3>
+                <p className="text-gray-500 text-sm">
+                  Published: {created_at}
+                </p>
+              </div>
+            </div>
+          </Link>
         ))}
-      </ul>
+      </div>
 
       {hasMore && (
-        <form method="get" action="/articles" style={{ marginTop: 20 }}>
-          <input type="hidden" name="page" value={nextPage} />
-          <button type="submit" style={{ padding: '10px 20px', fontSize: 16 }}>
-            Load More
+        <div className="mt-10 text-center">
+          <button
+            onClick={loadMore}
+            className="px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors duration-300 shadow-md hover:shadow-lg"
+          >
+            Load More Articles
           </button>
-        </form>
+        </div>
       )}
 
-      {!hasMore && <p>No more articles to load.</p>}
-
-      <Link href="/" style={{ display: "inline-block", marginTop: 30, color: "blue" }}>
-        ← Back to Home
-      </Link>
+      {!hasMore && (
+        <div className="mt-10 text-center">
+          <p className="text-gray-500">You've reached the end of our articles.</p>
+          <Link href="/" className="mt-4 inline-block text-blue-600 hover:text-blue-800">
+            Return to Home
+          </Link>
+        </div>
+      )}
     </div>
   );
 }
 
-// Server-side fetching with query param for pagination
 export async function getServerSideProps(context) {
   const page = parseInt(context.query.page) || 1;
 
