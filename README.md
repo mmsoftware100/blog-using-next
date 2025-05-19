@@ -40,6 +40,12 @@ export default function About() {
 တက်နိုင်သမျှ server side တွေပဲလုပ်။
 
 
+Module not found: Can't resolve '@src/app/globals.css'
+
+Module တွေ ဘယ်လို import လုပ်ကြလဲ?
+
+
+
 
 ----
 
