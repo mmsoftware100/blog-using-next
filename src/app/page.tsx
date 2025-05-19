@@ -1,46 +1,72 @@
 // import Image from "next/image";
+//"use client"; // Add this directive at the very top
 
+
+// import Head from "next/head";
 import Link from "next/link";
-
+// import { useEffect, useState } from "react";
 
 export default function Home() {
+  // const [pageTitle, setPageTitle] = useState("Loading...");
+
+  // useEffect(() => {
+  //   setPageTitle("My Dynamic Title");
+  // }, []);
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex flex-col items-center justify-center p-8">
-      <div className="max-w-2xl text-center">
-        <h1 className="text-6xl font-bold text-indigo-600 mb-6 animate-fade-in">
-          Hello World
-        </h1>
-        
-        <p className="text-xl text-gray-600 mb-10">
-          Welcome to my creative space. Explore and discover what I have to share.
-        </p>
-        
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link 
-            href="/about" 
-            className="px-6 py-3 bg-indigo-600 text-white rounded-lg shadow-md hover:bg-indigo-700 transition duration-300 transform hover:scale-105"
-          >
-            About Me
-          </Link>
-          
-          <Link 
-            href="/articles" 
-            className="px-6 py-3 border-2 border-indigo-600 text-indigo-600 rounded-lg hover:bg-indigo-50 transition duration-300 transform hover:scale-105"
-          >
-            Browse Articles
-          </Link>
-        </div>
-        
-        <div className="mt-16 text-gray-500">
-          <p>Scroll down or click above to begin your journey</p>
-          <div className="mt-4 animate-bounce">
-            <svg className="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-            </svg>
+    <>
+      {/* <Head>
+        <title>Home</title>
+      </Head> */}
+
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex flex-col items-center justify-center p-8">
+        <div className="max-w-2xl text-center">
+          <h1 className="text-6xl font-bold text-indigo-600 mb-6 animate-fade-in">
+            Hello World
+          </h1>
+
+          <p className="text-xl text-gray-600 mb-10">
+            Welcome to my creative space. Explore and discover what I have to
+            share.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/about"
+              className="px-6 py-3 bg-indigo-600 text-white rounded-lg shadow-md hover:bg-indigo-700 transition duration-300 transform hover:scale-105"
+            >
+              About Me
+            </Link>
+
+            <Link
+              href="/articles"
+              className="px-6 py-3 border-2 border-indigo-600 text-indigo-600 rounded-lg hover:bg-indigo-50 transition duration-300 transform hover:scale-105"
+            >
+              Browse Articles
+            </Link>
+          </div>
+
+          <div className="mt-16 text-gray-500">
+            <p>Scroll down or click above to begin your journey</p>
+            <div className="mt-4 animate-bounce">
+              <svg
+                className="w-6 h-6 mx-auto"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                ></path>
+              </svg>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
@@ -52,7 +78,6 @@ export default function Home() {
 
 //       <br />
 //       <Link href="/articles">Go to Articles Listing</Link>
-
 
 //       <br />
 //       {/* <Link href="/articles/123">Read Article 123</Link> */}
