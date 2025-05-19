@@ -53,8 +53,12 @@ https://blog-using-next.onrender.com/
 ဒီမှာ တင်ထားပါတယ်။
 
 
+## အသစ်ထပ်ဖတ်ဖို့
 
-
+- [ ] tailwind
+- [ ] next.js api routing
+- [ ] api routing / proxy / api gateway
+- [ ] layout တစ်ခု အစအဆုံး ချကြည့်ပါ။ MOHT အတွက်။
 ----
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).

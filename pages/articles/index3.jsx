@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import '../../src/app/globals.css';
+
 export default function Articles({ articles, page, hasMore }) {
   const nextPage = page + 1;
 
