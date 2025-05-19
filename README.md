@@ -30,6 +30,16 @@ export default function About() {
 ```
 
 
+## ဘာဆက်လုပ်ရမှာလဲ?
+
+- [ ] CRUD အပြည့်ရဖို့ To Do List api ရှာ / ရေးထား
+- [ ] ဒီမှာ Integrate လုပ်။
+- [ ] ပြီးရင် authentication ထည့်။
+
+
+တက်နိုင်သမျှ server side တွေပဲလုပ်။
+
+
 
 ----
 
