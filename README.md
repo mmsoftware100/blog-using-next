@@ -16,6 +16,20 @@ export default function Home() {
 
 ဘာလို့ Home ကို ယူပြနေရတာလဲ?
 
+File based routing မှာ function name နဲ့ page name တူဖို့လိုလား
+
+```js
+export default function About() {
+  return (
+    <div>
+      <h1>About Page</h1>
+      <p>This is the About page.</p>
+    </div>
+  );
+}
+```
+
+
 
 ----
 
