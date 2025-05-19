@@ -1,3 +1,24 @@
+# Next.js Hello World
+
+
+
+default export က ဘယ်လို အလုပ်လုပ်တာလဲ?
+
+```js
+export default function Home() {
+  return (
+    <div>
+      <h1>Hello World</h1>
+    </div>
+  );
+}
+```
+
+ဘာလို့ Home ကို ယူပြနေရတာလဲ?
+
+
+----
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
