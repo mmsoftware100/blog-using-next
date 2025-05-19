@@ -10,6 +10,10 @@ export default function Home() {
       <Link href="/about">Go to About</Link>
 
       <br />
+      <Link href="/articles">Go to Articles Listing</Link>
+
+
+      <br />
       <Link href="/articles/123">Read Article 123</Link>
     </div>
   );
