@@ -8,6 +8,9 @@ export default function Home() {
     <div>
       <h1>Hello World</h1>
       <Link href="/about">Go to About</Link>
+
+      <br />
+      <Link href="/articles/123">Read Article 123</Link>
     </div>
   );
 }
