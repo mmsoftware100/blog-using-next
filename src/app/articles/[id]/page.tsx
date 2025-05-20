@@ -12,9 +12,21 @@ interface Article {
     name: string;
   };
 }
+// interface PageProps {
+//   params: {
+//     id: string;
+//   };
+// }
+export type paramsType = Promise<{ id: string }>;
+type Params = Promise<{ id: string[] }>;
 
-export default async function Page({ params }: { params: { id: string } }) {
-  const res = await fetch(`https://drtoken.live/api/v1/articles/${params.id}`, {
+export default async function Page({ params }: { params: Params }) {
+
+  const { id } = await params;
+
+  // const id = params.id;
+
+  const res = await fetch(`https://drtoken.live/api/v1/articles/${id}`, {
     cache: 'no-store',
   });
 

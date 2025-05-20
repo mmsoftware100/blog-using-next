@@ -44,28 +44,54 @@ export default function ArticlesPage() {
   });
 
   // Set up IntersectionObserver
+  // useEffect(() => {
+  //   const observer = new IntersectionObserver(
+  //     (entries) => {
+  //       if (entries[0].isIntersecting && hasMore && !loading) {
+  //         fetchArticles();
+  //       }
+  //     },
+  //     {
+  //       threshold: 1.0,
+  //     }
+  //   );
+
+  //   if (loaderRef.current) {
+  //     observer.observe(loaderRef.current);
+  //   }
+
+  //   return () => {
+  //     if (loaderRef.current) {
+  //       observer.unobserve(loaderRef.current);
+  //     }
+  //   };
+  // }, [fetchArticles, hasMore, loading]);
+
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting && hasMore && !loading) {
-          fetchArticles();
-        }
-      },
-      {
-        threshold: 1.0,
-      }
-    );
+  const target = loaderRef.current; // cache ref value
 
-    if (loaderRef.current) {
-      observer.observe(loaderRef.current);
+  if (!target) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      if (entries[0].isIntersecting && hasMore && !loading) {
+        fetchArticles();
+      }
+    },
+    {
+      threshold: 1.0,
     }
+  );
 
-    return () => {
-      if (loaderRef.current) {
-        observer.unobserve(loaderRef.current);
-      }
-    };
-  }, [fetchArticles, hasMore, loading]);
+  observer.observe(target);
+
+  return () => {
+    if (target) {
+      observer.unobserve(target); // use cached ref value here
+    }
+  };
+}, [fetchArticles, hasMore, loading]);
+
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-6xl">
