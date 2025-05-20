@@ -44,6 +44,13 @@ export default function Home() {
             >
               Browse Articles
             </Link>
+
+            <Link
+              href="/blog"
+              className="px-6 py-3 border-2 border-indigo-600 text-indigo-600 rounded-lg hover:bg-indigo-50 transition duration-300 transform hover:scale-105"
+            >
+              Blog
+            </Link>
           </div>
 
           <div className="mt-16 text-gray-500">
