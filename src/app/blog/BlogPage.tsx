@@ -38,7 +38,8 @@ export default function BlogPage() {
     if (loading || !hasMore) return;
     setLoading(true);
     try {
-      const res = await fetch(`https://wp.hellosayarwon.com/wp-json/api/articles?page=${page}`);
+      // const res = await fetch(`https://wp.hellosayarwon.com/wp-json/api/articles?page=${page}`);
+      const res = await fetch(`/api/blog?page=${page}`);
       const json = await res.json();
       const newArticles = json.data?.posts || [];
 
