@@ -160,7 +160,7 @@ export default function BlogPage() {
             </div>
           )}
           {!hasMore && (
-            <p className="text-gray-500">You've reached the end of articles</p>
+            <p className="text-gray-500">You&apos;ve reached the end of articles</p>
           )}
         </div>
       </div>
