@@ -65,6 +65,117 @@ https://blog-using-next.onrender.com/
 Documentation ထဲကအတိုင်း page က အလုပ်လုပ်ပေမယ့် getServerSideProperties က အလုပ်မလုပ်။
 
 
+You're not alone in this confusion — Next.js 13+ (including 15) introduced a major architectural change with the **App Router**, and it's easy to get tripped up by the differences from the old **Pages Router**. Here's a clear breakdown to help you breathe again:
+
+---
+
+## 🧠 TL;DR:
+
+* **`app/`** is for the **App Router** (Next.js 13+).
+* **`pages/`** is for the legacy **Pages Router**.
+* They **can coexist** (but with caveats).
+* **Layouts only work in `app/`**, not in `pages/`.
+* You’re likely using `pages/` expecting App Router features — hence the confusion.
+
+---
+
+## 🤖 When to use `app/`
+
+Use the `app/` directory if:
+
+* You want to use **layouts**, **server components**, **loading.tsx**, **error.tsx**, **Route Groups**, **Segment Config**, etc.
+* You are comfortable with React Server Components and newer Next.js features.
+* You want the most modern approach recommended by the Next.js team.
+
+**Example:**
+
+```bash
+/app
+  /dashboard
+    page.tsx
+    layout.tsx
+    loading.tsx
+```
+
+---
+
+## 📦 When to use `pages/`
+
+Use the `pages/` directory if:
+
+* You are migrating from older Next.js projects.
+* You rely on `getServerSideProps`, `getStaticProps`, etc.
+* You are using libraries that aren’t yet compatible with the App Router.
+
+**Example:**
+
+```bash
+/pages
+  index.tsx
+  about.tsx
+```
+
+---
+
+## ✅ Do they coexist?
+
+Yes, **`app/` and `pages/` can coexist**, but only **one router handles a given route**.
+
+### ⚠️ Key Rule:
+
+> Routes in `app/` will **override** routes in `pages/`.
+
+So:
+
+* If you have `/app/about/page.tsx`, it will take precedence over `/pages/about.tsx`.
+
+---
+
+## 😤 Why aren’t layouts working in `pages/`?
+
+Because layouts are **only supported in the App Router (`app/`)**.
+
+If you're doing this:
+
+```tsx
+// pages/_app.tsx or pages/_layout.tsx
+```
+
+That's **not the same** as the new `app/layout.tsx`. In `pages/`, you manually create shared layouts in `_app.tsx` or HOCs.
+
+---
+
+## 🔥 Final sanity-saving advice:
+
+### ✅ Use `app/` if:
+
+* You’re starting a new project.
+* You want nested layouts, loading states, and server components.
+
+### ✅ Use `pages/` if:
+
+* You’re upgrading slowly or using older Next.js-compatible libraries.
+
+---
+
+## 🚨 Common mistake in your case:
+
+You probably put `layout.tsx` inside `pages/` — that won’t do anything.
+
+✅ Fix: move to `app/` and structure like:
+
+```
+/app
+  layout.tsx         <-- your main layout
+  page.tsx           <-- your homepage
+  /about
+    page.tsx         <-- /about route
+```
+
+---
+
+Want help migrating or debugging your specific layout issue? Feel free to paste your folder structure or relevant code here.
+
 ----
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).

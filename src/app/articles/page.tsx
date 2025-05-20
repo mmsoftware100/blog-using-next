@@ -77,7 +77,7 @@ export default async function Page({ searchParams }: Props) {
 
       {!hasMore && (
         <div className="mt-10 text-center">
-          <p className="text-gray-500">You've reached the end of our articles.</p>
+          <p className="text-gray-500">You&apos;ve reached the end of our articles.</p>
           <Link href="/" className="mt-4 inline-block text-blue-600 hover:text-blue-800">
             Return to Home
           </Link>
