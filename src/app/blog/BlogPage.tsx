@@ -54,8 +54,8 @@ export default function BlogPage() {
   }, [page, loading, hasMore]);
 
   useEffect(() => {
-    fetchArticles();
-  });
+  fetchArticles();
+}, []); // 👈 run only once on component mount
 
   useEffect(() => {
 
