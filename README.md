@@ -59,6 +59,12 @@ https://blog-using-next.onrender.com/
 - [ ] next.js api routing
 - [ ] api routing / proxy / api gateway
 - [ ] layout တစ်ခု အစအဆုံး ချကြည့်ပါ။ MOHT အတွက်။
+
+## 2025-05-20
+
+Documentation ထဲကအတိုင်း page က အလုပ်လုပ်ပေမယ့် getServerSideProperties က အလုပ်မလုပ်။
+
+
 ----
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
