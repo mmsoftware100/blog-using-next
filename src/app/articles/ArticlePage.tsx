@@ -41,7 +41,7 @@ export default function ArticlesPage() {
   // Load initial articles
   useEffect(() => {
     fetchArticles();
-  }, []);
+  });
 
   // Set up IntersectionObserver
   useEffect(() => {

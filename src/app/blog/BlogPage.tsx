@@ -55,9 +55,11 @@ export default function BlogPage() {
 
   useEffect(() => {
     fetchArticles();
-  }, []);
+  });
 
   useEffect(() => {
+
+    const loader = loaderRef.current;
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting && hasMore && !loading) {
@@ -67,13 +69,13 @@ export default function BlogPage() {
       { threshold: 1.0 }
     );
 
-    if (loaderRef.current) {
-      observer.observe(loaderRef.current);
+    if (loader) {
+      observer.observe(loader);
     }
 
     return () => {
-      if (loaderRef.current) {
-        observer.unobserve(loaderRef.current);
+      if (loader) {
+        observer.unobserve(loader);
       }
     };
   }, [fetchArticles, hasMore, loading]);

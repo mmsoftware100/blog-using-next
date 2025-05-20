@@ -1,17 +1,27 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-// import '../../../src/app/globals.css';
+
+interface Article {
+  name: string;
+  photo_url: string;
+  description: string;
+  created_at: string;
+  updated_at?: string;
+  category?: {
+    name: string;
+  };
+}
 
 export default async function Page({ params }: { params: { id: string } }) {
   const res = await fetch(`https://drtoken.live/api/v1/articles/${params.id}`, {
-    cache: 'no-store', // optional: use SSR-like behavior
+    cache: 'no-store',
   });
 
   if (!res.ok) return notFound();
 
   const json = await res.json();
-  const article = json.data;
+  const article: Article = json.data;
 
   if (!json.status || !article) return notFound();
 
@@ -46,6 +56,7 @@ export default async function Page({ params }: { params: { id: string } }) {
           alt={article.name}
           fill
           className="object-cover hover:scale-105 transition-transform duration-500"
+          priority
         />
       </div>
 
