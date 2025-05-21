@@ -10,7 +10,7 @@ export async function GET(
   { params }: { params: Params }
 ) {
   const { slug } = await params;
-  console.log('slug', slug);
+  // console.log('slug', slug);
 
   const permLink = slug.join('/');
 
