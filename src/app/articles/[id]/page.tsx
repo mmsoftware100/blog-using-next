@@ -17,7 +17,7 @@ interface Article {
 //     id: string;
 //   };
 // }
-export type paramsType = Promise<{ id: string }>;
+// export type paramsType = Promise<{ id: string }>;
 type Params = Promise<{ id: string[] }>;
 
 export default async function Page({ params }: { params: Params }) {
