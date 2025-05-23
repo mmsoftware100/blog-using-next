@@ -1,15 +1,17 @@
-// GET /api/articles/1
+// GET /api/articles/[slug]
 import { NextRequest, NextResponse } from 'next/server';
 
 
-type Params = Promise<{ slug: string[] }>;
+type Params = Promise<{ slugArray: string[] }>;
 
 
 export async function GET(
   req: NextRequest,
   { params }: { params: Params }
 ) {
-  const { slug } = await params;
+  const { slugArray } = await params;
+  const slug = slugArray.join('/');
+
 
   try {
     const res = await fetch(`https://wp.hellosayarwon.com/wp-json/api/articles/${slug}`, {
