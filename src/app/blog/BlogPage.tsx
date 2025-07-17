@@ -111,7 +111,7 @@ export default function BlogPage() {
               key={article.ID} 
               className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col"
             >
-              <Link href={article.permalink} className="block">
+              <Link key={article.permalink} href={`/blog${article.permalink}`} className="block">
                 <div className="relative h-48 w-full">
                   <Image
                     src={article.image || article.image_thumbnail || '/placeholder.jpg'}
@@ -128,7 +128,7 @@ export default function BlogPage() {
               </Link>
 
               <div className="p-6 flex-grow flex flex-col">
-                <Link href={article.permalink}>
+                <Link href={`/blog${article.permalink}`}>
                   <h3 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2 hover:text-indigo-600 transition-colors">
                     {article.post_title}
                   </h3>
